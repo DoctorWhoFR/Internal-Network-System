@@ -8,7 +8,7 @@
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <link rel="shortcut icon" href="img/favicon.png">
 
-    <title>I.N.S :: Personnel list</title>
+    <title>I.N.S :: Personnel Managment</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -45,19 +45,30 @@
           <?php include("inc/header.php"); ?>
       </aside>
       
-      <?php
-        include("inc/database.php")
-      ?>      
-      	  <?php
-         if($level >= 4)
-         {
-         } else 
-         {
-		 ?>
-            <meta http-equiv="refresh" content="0; url=noaccess.html">
-		<?php	
-         }
-        ?>
+      <?php 
+            session_start();
+
+            if(!isset($_SESSION['ID'])){
+              echo('<meta http-equiv="refresh" content="0;url=login.php">');
+            }
+
+            include("inc/db.php"); 
+
+            $requete = $odb->prepare("SELECT * FROM rapports");
+            $requete->execute();        
+
+            $SQLGetInfo = $odb -> prepare("SELECT * FROM `users` WHERE `id` = :id");
+            $SQLGetInfo -> execute(array(':id' => $_SESSION['ID']));
+            $userInfo = $SQLGetInfo -> fetch(PDO::FETCH_ASSOC);
+            $accred = $userInfo['Level'];
+
+            if($accred >= 4)
+            {
+              
+            } else {
+              echo('<meta http-equiv="refresh" content="0;url=noaccess.php">');
+            }
+       ?>
       <!--sidebar end-->
       <!--main content start-->
       <section id="main-content">
@@ -76,40 +87,33 @@
                               <thead>
                               <tr>
                                   <th><i class="fa fa-bullhorn"></i> Researcher Name</th>
-                                  <th class="hidden-phone"><i class="fa fa-question-circle"></i> Accreditation</th>
+                                  <th><i class="fa fa-bolt"></i> Accreditation</th>
                                   <th></th>
                               </tr>
                               </thead>
                               <tbody>
                               <?php
-                                  $requete="SELECT * FROM user";
-                                  $exec=mysql_query($requete);
-                                  
-                                  while($ligne=mysql_fetch_array($exec)) 
+                                 
+                                $requete = $odb->prepare("SELECT * FROM users");
+                                $requete->execute();  
+                                while($resultats = $requete->fetch(PDO::FETCH_OBJ))
                                   {
-                                    ?>
-                                 <tr>
-                                      <td>
-                                          <a href="#">
-                                              <?php echo $ligne['Username']; ?>
-                                          </a>
-                                      </td>
-                                      <td class="hidden-phone"><?php echo $ligne['Level']; ?></td>
-                                      <td>
-                                          <form action="editpersonnel.php" method="POST">
-                                              <button type="submit" name="action" value="<?php echo $ligne['id']  ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                        </form>
-                                      </td>
-                                  </tr>
-                                  
-                                  
-                                  <?php
-                                      
-                                      
-                                      
-                                  }
+                                    $r_username = $resultats->Username;
+                                    $r_level = $resultats->Level;
+                                           
+
+                                  echo('<tr>');
+                                  echo('<td>' . $r_username . '</td>');
+                                  echo('<td class="hidden-phone">' . $r_level . '</td>');
+                                  echo('<td>');
+                                  echo ('<form action="editpersonnel.php" method="POST">');
+                                  echo('<button type="submit" name="action" value="<?php echo($r_username); ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>');
+                                  echo('</td>');                                  
+                                  echo ('</tr>');
+                                }
+                                
                               ?>
-                              
+                                  
                               </tbody>
                           </table>
                       </section>

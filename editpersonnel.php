@@ -45,17 +45,20 @@
       </aside>
       </aside>
       <?php
-          $idNews= $_POST['action'];
-          $requete='SELECT * FROM user WHERE id=' . $idNews;
-          $exec=mysql_query($requete);
-          $ligne=mysql_fetch_array($exec);
-          {
-           $titre=$ligne['Username'];
-           $author=$ligne['Level'];
-          }
+            include("inc/db.php");
+
+            if(isset($_POST['action'])){
+              
+              $username = $_POST['action'];
+              $SQLGetInfo = $odb -> prepare("SELECT * FROM `users` WHERE `Username` = admin");
+              $SQLGetInfo -> execute();
+              
+              $userInfo = $SQLGetInfo -> fetch(PDO::FETCH_ASSOC);
+              $accred = $userInfo['Level'];
+
+            }
                               
-                              
-                              ?>
+       ?>
       <!--sidebar end-->
       <!--main content start-->
       <section id="main-content">
@@ -67,23 +70,15 @@
               <div class="col-lg-12">
                       <section class="panel">
                           <header class="panel-heading">
-                              Edit: <?php echo $titre; ?>
+                              Edit: 
                               
                           </header>
-                          <?php
-         if($level >= 3)
-         {
-         } else 
-         {
-            header('Location: index.php');
-            exit();
-         }                          
-                          ?>
+                         
                           <div class="panel-body">
                               <form action="inc/editpersonnels.php" method="POST">
                                   <div class="form-group">
                                       <label>Username:</label>
-                                      <input name="usernames" class="form-control" value="<?php echo $titre;?>"  id="username" type="text" >
+                                      <input name="usernames" class="form-control" value="<?php echo($accred); ?>"  id="username" type="text" >
                                   </div>
                                    <div class="form-group">
                                       <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Accreditation</label>
