@@ -8,7 +8,7 @@
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <link rel="shortcut icon" href="img/favicon.png">
 
-    <title>I.S.N.S :: Index</title>
+    <title>I.N.S :: Index</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -59,7 +59,7 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-            <a href="index.php" class="logo">I.S.N.S<span> V1.0</span></a>
+            <a href="index.php" class="logo">I.N.S<span> V1.0</span></a>
             <!--logo end-->
           <div class="top-nav ">
               <ul class="nav pull-right top-menu">
@@ -100,7 +100,7 @@
                               </ol>
                               <div class="carousel-inner">
                                   <div class="item text-center active">
-                                      <h3>Welcome Mr.<?php echo($userInfo['Username']); ?> on the internal secure network foundation research, the I.S.N.S</h3>
+                                      <h3>Welcome Mr.<?php echo($userInfo['Username']); ?> on the internal secure network foundation research, the I.N.S</h3>
 									  <small class="text-muted">You have a level of accreditation: <?php echo $userInfo['Level']; ?></small>
 									  </br>
                                       <small class="text-muted">Secure and encrypted Session</small>
@@ -185,7 +185,7 @@
       <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       <footer class="site-footer">
           <div class="text-center">
-              2016 &copy; I.S.N.S by Max13480.
+              2016 &copy; I.N.S by Max13480.
               <a href="#" class="go-top">
                   <i class="fa fa-angle-up"></i>
               </a>

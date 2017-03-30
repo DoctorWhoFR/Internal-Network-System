@@ -599,7 +599,7 @@
     <tr bgcolor="C0392B">
         <td  style="color: #fff; font-size: 10px; font-weight: normal; font-family: Helvetica, Arial, sans-serif;" align="center">
 
-            I.S.N.S © Copyright 2016 . All Rights Reserved
+            I.N.S © Copyright 2016 . All Rights Reserved
 
         </td>
     </tr>

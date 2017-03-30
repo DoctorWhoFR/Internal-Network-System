@@ -8,7 +8,7 @@
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <link rel="shortcut icon" href="img/favicon.png">
 
-    <title>I.S.N.S :: Liste des rapports</title>
+    <title>I.N.S :: Liste des rapports</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -74,7 +74,7 @@
 
           </div>
           <!--logo start-->
-          <a href="index.php" class="logo" >I.S.N.S<span> V1.5</span></a>
+          <a href="index.php" class="logo" >I.N.S<span> V1.5</span></a>
           <!--logo end-->
       </header>
       <!--header end-->
@@ -168,7 +168,7 @@
       <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       <footer class="site-footer">
           <div class="text-center">
-              2016 &copy; I.S.N.S by Max13480.
+              2016 &copy; I.N.S by Max13480.
               <a href="#" class="go-top">
                   <i class="fa fa-angle-up"></i>
               </a>
