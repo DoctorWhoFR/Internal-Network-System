@@ -18,8 +18,6 @@ Internal Network System is a system to add more RolePLay on SCP Server. I'm curr
 
 - With report system. 
 - SCP database system.
-- Personal management 
-
 
 
 ### Installation
