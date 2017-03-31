@@ -46,8 +46,13 @@
     $SQLCheckRapport -> execute();
     $countRapports = $SQLCheckRapport -> fetchColumn(0);
 
-    $requete = $odb->prepare("SELECT * FROM progression");
-    $requete->execute();
+    $SQLCheckSCP = $odb -> prepare("SELECT COUNT(*) FROM `scp`");
+    $SQLCheckSCP -> execute();
+    $countSCP = $SQLCheckSCP -> fetchColumn(0);
+
+    $SQLUserRapport = $odb -> prepare("SELECT COUNT(*) FROM `rapports` WHERE `author` = '" . $userInfo['Username'] . "'");
+    $SQLUserRapport -> execute();
+    $UserRapport = $SQLUserRapport -> fetchColumn(0);
 
   ?>
   
@@ -123,7 +128,7 @@
                   <div class="col-lg-3 col-sm-6">
                       <section class="panel">
                           <div class="symbol terques">
-                              <i class="fa fa-user"></i>
+                              <i class="fa fa-archive"></i>
                           </div>
                           <div class="value">
                               <h1>
@@ -135,45 +140,45 @@
                           </div>
                         </section>
                   </div>
-
-                  <div class="col-lg-8">
-                      <!--work progress start-->
-
- 
+                  <div class="col-lg-3 col-sm-6">
                       <section class="panel">
-                          <div class="panel-body progress-panel">
-                              <div class="task-progress">
-                                  <h1>Accidents en cours</h1>
-                                  <br>
-                              </div
+                          <div class="symbol yellow">
+                              <i class="fa fa-bug"></i>
                           </div>
-                          <table class="table table-hover personal-task">
-                              <tbody>
-                              <?php 
-                              while($resultats = $requete->fetch(PDO::FETCH_OBJ))
-                              {
-                                   $r_id = $resultats->id;
-                                   $r_title = $resultats->title;
-                                   $r_pourcente = $resultats->pourcente;
-                               
-
-                                echo('<tr>');
-                                echo('<td>' .  $r_id . '</td>');
-                                echo('<td>' .  $r_title . '</td>');
-                                echo('<td> <span class="badge bg-important"> ' . $r_pourcente . '% </span> </td>');
-                                echo('</tr>');
-
-                              }
-                             ?>
-                         
-                              </tbody>
-                          </table>
-                      </section>
-
-                      <?php
-
-                      ?>
+                          <div class="value">
+                              <h1>
+                                <?php
+                                  echo($countSCP);
+                                ?>
+                              </h1>
+                              <p>Totals SCP</p>
+                          </div>
+                        </section>
                   </div>
+                  <div class="col-lg-3 col-sm-6">
+                              <!--follower start-->
+                              <section class="panel">
+                                  <div class="follower">
+                                      <div class="panel-body">
+                                          <h4><?php echo($userInfo['Username']); ?></h4>
+                                      </div>
+                                  </div>
+
+                                  <footer class="follower-foot">
+                                      <ul>
+                                          <li>
+                                              <h5><?php echo($UserRapport); ?></h5>
+                                              <p>Rapports</p>
+                                          </li>
+                                          <li>
+                                              <h5><?php echo($countSCP); ?></h5>
+                                              <p>SCP</p>
+                                          </li>
+                                      </ul>
+                                  </footer>
+                              </section>
+                              <!--follower end-->
+                          </div>
                    <!--carousel start-->
 
               </div>

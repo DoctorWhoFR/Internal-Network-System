@@ -74,7 +74,7 @@
 
           </div>
           <!--logo start-->
-          <a href="index.php" class="logo" >I.N.S<span> V1.5</span></a>
+          <a href="index.php" class="logo" >I.N.S<span> V1.0</span></a>
           <!--logo end-->
       </header>
       <!--header end-->
@@ -160,7 +160,7 @@
                       </section>
                   </div>
               </div>
-              <button class="btn btn-success" href="#">Rédiger un Rapport</button>
+              <button class="btn btn-success" href="#"><a href="/ISN/writerapport.php">Rédiger un Rapport</a></button>
           </section>
       </section>
       <!--main content end-->
