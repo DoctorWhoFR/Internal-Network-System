@@ -3,7 +3,8 @@
     session_start();
     include("db.php");
     
-    if(isset($_POST['submit'])){
+    if(isset($_POST['submit']))
+    {
     	 $username = htmlspecialchars($_POST['username']);
     	$password = htmlspecialchars($_POST['password']);
 
@@ -24,8 +25,9 @@
 	    
 	   		 echo('<div class="alert alert-success"><strong>Success : </strong> Successful Connection...</div><meta http-equiv="refresh" content="2;url=../index.php">');
 
-		 	} else {
-		 		echo("No account!");
+		 	} 
+		    else {
+		 		echo("No account created");
 		 	}
 	    }
     }
